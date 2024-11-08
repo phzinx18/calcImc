@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+
+    <!-- link da fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Protest+Strike&display=swap"
+        rel="stylesheet">
+
+    <!-- link da fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Indice de Massa corporal
+        </h1>
+
+        <div class="container">
+            <label class="switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+
+    </header>
+
+    <main>
+
+        <div class="intro">
+
+            <p class="sobre">
+                <strong>O que é IMC:</strong>
+                <br>
+                O Índice de Massa Corporal (IMC) é uma medida usada para avaliar se uma pessoa está dentro de uma faixa
+                de peso saudável em relação à sua altura. O cálculo do IMC é simples e envolve dividir o peso da pessoa
+                (em quilos) pelo quadrado da sua altura (em metros). A fórmula é a seguinte: IMC = peso (kg) / altura²
+                (m²). Embora seja uma ferramenta prática e amplamente utilizada, o IMC não leva em consideração fatores
+                como a composição corporal (percentual de gordura e músculo), idade ou sexo, o que pode limitar sua
+                precisão em algumas situações.
+                <br><br>
+                De acordo com os resultados do IMC, os indivíduos são classificados em diferentes categorias de peso:
+                abaixo do peso (IMC abaixo de 18,5), peso normal (IMC entre 18,5 e 24,9), sobrepeso (IMC entre 25 e
+                29,9), obesidade grau 1 (IMC entre 30 e 34,9), obesidade grau 2 (IMC entre 35 e 39,9) e obesidade grau 3
+                (IMC acima de 40). Essas classificações ajudam a identificar riscos para a saúde, uma vez que o excesso
+                de peso ou a obesidade estão associados a diversas condições, como doenças cardiovasculares, diabetes
+                tipo 2 e problemas nas articulações.
+                <br><br>
+                No entanto, é importante ressaltar que o IMC é apenas uma indicação geral e não deve ser usado como
+                único parâmetro para avaliar a saúde de uma pessoa. Outras medições, como a circunferência da cintura, o
+                percentual de gordura corporal e exames médicos, são essenciais para uma avaliação mais precisa e
+                completa. Portanto, embora o IMC seja uma ferramenta útil para monitoramento populacional e individual,
+                um diagnóstico médico completo é fundamental para entender melhor a saúde e as necessidades de cada
+                pessoa.
+            </p>
+
+            <img src="https://anacli.com.br/wp-content/uploads/2024/03/IMC.jpg" alt="imagem relacionada a imc e saude"
+                width="600px">
+        </div>
+        <form action="#">
+
+            <!-- campo para digitar altura  -->
+            <label for="altura">Altura:</label>
+            <input type="number" name="altura" id="altura" placeholder="EX:1,80">
+
+            <!-- campo para digitar peso  -->
+            <label for="peso">Peso (kg):</label>
+            <input type="number" name="peso" id="peso" placeholder="EX:80">
+
+            <div>
+                <!-- botão para calcular o IMC  -->
+                <button onclick="calcImc()" class="button">Calcular IMC</button>
+
+                <p id="imc">Seu índice de massa corporal é: <span id="resultado"></span></p>
+            </div>
+        </form>
+    </main>
+
+    <!-- tabela -->
+    <table>
+        <thead>
+            <caption>
+                Veja a interpretação do IMC:
+            </caption>
+            <tr>
+                <th>
+                    IMC
+                </th>
+                <th>
+                    Classificação
+                </th>
+                <th>
+                    Obesidade(grau)
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    Menor que 18,5
+                </td>
+                <td>
+                    Magreza
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Entre 18,5 e 24,9
+                </td>
+                <td>
+                    Normal
+                </td>
+                <td>
+                    0
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Entre 25,0 e 29,9
+                </td>
+                <td>
+                    Sobrepeso
+                </td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>
+                    Entre 30,0 e 39,9
+                </td>
+                <td>
+                    Obesidade
+                </td>
+                <td>
+                    2
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Maior que 40,0
+                </td>
+                <td>
+                    Obesidade Grave
+                </td>
+                <td>
+                    3
+                </td>
+            </tr>
+        </tbody>
+
+        <!-- JavaScript -->
+        <script>
+            function calcImc() {
+                // constante da altura 
+                const altura = parseFloat(document.getElementById("altura").value);
+                // constante do peso 
+                const peso = parseFloat(document.getElementById("peso").value);
+                // constante do resultado 
+                const resultado = peso / (altura ** 2);
+
+                document.getElementById("resultado").textContent = resultado.toFixed(2)
+            }
+        </script>
+
+</body>
+
+</html>
